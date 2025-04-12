@@ -58,6 +58,7 @@ const config: Config = {
         'hero': "linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url('/assets/bg/hero.png')",
         'create-your-dream-trip': "url('/assets/bg/create-your-dream-trip.png')",
         'create-your-journey': "url('/assets/bg/create-your-journey.png')",
+        'travel-blog': "url('/assets/bg/travel-blog.png')",
       },
       boxShadow: {
         'button': '0px 4px 0px 0px #111F3C',
