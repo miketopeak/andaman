@@ -38,11 +38,11 @@ const Hero = () => {
 
         <div className="flex-between pt-16">
           <div className="w-full grid grid-cols-2 md:flex ~gap-3/6">
-            <Button variant="white" className="w-full md:w-auto" isArrow>
+            <Button variant="white" className="w-full md:w-auto" hasArrow>
               Create a tour
             </Button>
 
-            <Button variant="white-outline" className="w-full md:w-auto" isArrow>
+            <Button variant="white-outline" className="w-full md:w-auto" hasArrow>
               Select tour
             </Button>
           </div>

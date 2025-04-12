@@ -21,6 +21,9 @@ const config: Config = {
           DEFAULT: "1rem",
           sm: "2rem"
         },
+        screens: {
+          '2xl': '1400px',
+        },
       },
       colors: {
         primary: "#00ACB1",
@@ -53,6 +56,7 @@ const config: Config = {
         "btn-primary": "linear-gradient(100deg, #C5C900 7.4%, #82D755 26.98%, #00ACB1 87.32%)",
         "btn-primary-hover": "linear-gradient(100deg, #FAFF00 7.4%, #9DE475 26.98%, #4DCACF 87.32%)",
         'hero': "linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url('/assets/bg/hero.png')",
+        'create-your-dream-trip': "url('/assets/bg/create-your-dream-trip.png')",
       },
       boxShadow: {
         'button': '0px 4px 0px 0px #111F3C',

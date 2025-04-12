@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-btn-primary text-white hover:bg-btn-primary-hover",
-
+        outline: "relative bg-btn-primary text-white hover:bg-btn-primary-hover after:content-[''] after:absolute after:w-[calc(100%-2px)] after:h-[calc(100%-2px)] after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-dark-700 after:rounded-full",
         white: "bg-white text-primary hover:bg-white/90",
         "white-outline":
           "border border-white text-white hover:bg-white/10",
@@ -35,10 +35,11 @@ const buttonVariants = cva(
   }
 )
 
-const arrowVariants = cva("hidden md:flex items-center justify-center", {
+const arrowVariants = cva("hidden md:flex items-center justify-center relative z-10", {
   variants: {
     variant: {
       default: "bg-white text-primary",
+      outline: "bg-white text-primary",
       white: "bg-primary text-white",
       "white-outline": "bg-white text-primary",
       secondary: "bg-white text-secondary",
@@ -63,12 +64,12 @@ function Button({
   variant,
   size,
   asChild = false,
-  isArrow = false,
+  hasArrow = false,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
-    isArrow?: boolean
+    hasArrow?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
 
@@ -78,8 +79,11 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >
-      {props.children}
-      {isArrow && (
+
+      <div className="relative z-10">
+        {props.children}
+      </div>
+      {hasArrow && (
         <span className={cn(arrowVariants({ variant, size }))}>
           <GoArrowUpRight strokeWidth={1.5} />
         </span>
