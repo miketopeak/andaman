@@ -26,7 +26,7 @@ const tourData = [
     days: 7,
     price: 2980,
     includes: ['Accommodation', 'Directions', 'Breakfast'],
-    description: 'You will see the most amazing beaches of the islands',
+    description: 'You will see the most amazing beaches of the islands, and you will be able to enjoy the sun and the sea.',
     rating: 4,
     image: '/assets/images/img-1.png',
   },
@@ -189,7 +189,7 @@ const PopularTours = () => {
 
                           {/* Bottom section with description and rating */}
                           <div className="text-white">
-                            <p className="mb-2">{tour.description}</p>
+                            <p className="mb-2 max-w-[90%]">{tour.description}</p>
 
                             <div className="flex items-center">
                               {Array(5).fill(0).map((_, i) => (

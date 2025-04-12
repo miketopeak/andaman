@@ -2,6 +2,7 @@ import CreateYourDreamTrip from "./components/CreateYourDreamTrip";
 import CreateYourJourney from "./components/CreateYourJourney";
 import IslandTabsGallery from "./components/IslandTabsGallery";
 import PopularTours from "./components/PopularTours";
+import Reviews from "./components/Reviews";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <CreateYourDreamTrip />
       <IslandTabsGallery />
       <PopularTours />
+      <Reviews />
       <CreateYourJourney />
     </>
   );
