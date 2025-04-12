@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import { Button } from '@/components/ui/button';
 import useWindowSize from '@/lib/hooks/useWindowSize';
+import { cn } from '@/lib/utils';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -24,7 +25,6 @@ const IslandGallery = ({ data }: IslandGalleryProps) => {
   const { width } = useWindowSize()
   const [activeIndex, setActiveIndex] = useState(0);
 
-
   return (
     <div className="relative w-full">
       <Swiper
@@ -36,12 +36,10 @@ const IslandGallery = ({ data }: IslandGalleryProps) => {
           prevEl: '#island-gallery-prev',
           nextEl: '#island-gallery-next',
         }}
-        pagination={{
+        pagination={width < 768 ? {
           clickable: true,
-          enabled: width < 768, // Enable pagination only on medium screens and larger
-
-        }}
-        className="w-full pb-10"
+        } : false}
+        className={cn("w-full", width < 768 ? "pb-10" : "")}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       >
         {data.map((item, index) => (

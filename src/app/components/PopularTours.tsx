@@ -134,11 +134,10 @@ const PopularTours = () => {
                 prevEl: '#tour-slider-prev',
                 nextEl: '#tour-slider-next',
               }}
-              pagination={{
+              pagination={width < 768 ? {
                 clickable: true,
-                enabled: width < 768,
-              }}
-              className="w-full pb-10"
+              } : false}
+              className={cn("w-full", width < 768 ? "pb-10" : "")}
               onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             >
               {tourData.map((tour, index) => (
@@ -150,7 +149,7 @@ const PopularTours = () => {
                     onMouseLeave={() => setHoveredIndex(-1)}
                   >
                     {/* Full height/width image */}
-                    <div className="relative aspect-[5/4] w-full rounded-lg overflow-hidden">
+                    <div className="relative h-[409px] w-full rounded-lg overflow-hidden">
                       <Image
                         src={tour.image}
                         alt={tour.title}
