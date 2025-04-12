@@ -61,6 +61,7 @@ const arrowVariants = cva("hidden md:flex items-center justify-center relative z
 
 function Button({
   className,
+  arrowClassName,
   variant,
   size,
   asChild = false,
@@ -70,6 +71,7 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
     hasArrow?: boolean
+    arrowClassName?: string
   }) {
   const Comp = asChild ? Slot : "button"
 
@@ -84,7 +86,7 @@ function Button({
         {props.children}
       </div>
       {hasArrow && (
-        <span className={cn(arrowVariants({ variant, size }))}>
+        <span className={cn(arrowVariants({ variant, size }), arrowClassName)}>
           <GoArrowUpRight strokeWidth={1.5} />
         </span>
       )}

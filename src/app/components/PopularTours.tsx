@@ -66,7 +66,7 @@ const PopularTours = () => {
   const { width } = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
-  const swiperRef = useRef<SwiperType>();
+  const swiperRef = useRef<SwiperType | null>(null);
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
 
   const handleSlideClick = (index: number) => {

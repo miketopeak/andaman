@@ -57,6 +57,7 @@ const config: Config = {
         "btn-primary-hover": "linear-gradient(100deg, #FAFF00 7.4%, #9DE475 26.98%, #4DCACF 87.32%)",
         'hero': "linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url('/assets/bg/hero.png')",
         'create-your-dream-trip': "url('/assets/bg/create-your-dream-trip.png')",
+        'create-your-journey': "url('/assets/bg/create-your-journey.png')",
       },
       boxShadow: {
         'button': '0px 4px 0px 0px #111F3C',
