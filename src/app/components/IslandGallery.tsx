@@ -53,7 +53,7 @@ const IslandGallery = ({ data }: IslandGalleryProps) => {
                 className="h-[312px] md:h-[658px] w-full rounded-lg object-cover"
               />
 
-              <div className="lg:absolute lg:top-5 lg:right-5 lg:bg-dark text-white pt-5 lg:px-5 lg:pb-5 rounded-lg">
+              <div className="lg:w-64 lg:absolute lg:top-5 lg:right-5 lg:bg-dark text-white pt-5 lg:px-5 lg:pb-5 rounded-lg">
 
                 <h2 className="text-2xl pb-2">{item.title}</h2>
 
