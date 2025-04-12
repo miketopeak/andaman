@@ -50,7 +50,7 @@ const config: Config = {
       },
       backgroundImage: {
         'footer-gradient': 'linear-gradient(270deg, #0F172F 2.22%, #0D152A 31.54%, #101B30 50.74%, #151F33 70.62%, #131D32 74.66%, #0C192E 80.38%, #0D192B 99.94%)',
-        'footer-texture': "url('/img/footer-texture.png')",
+        'hero': "linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url('/assets/bg/hero.png')",
       },
       boxShadow: {
         'button': '0px 4px 0px 0px #111F3C',

@@ -1,3 +1,6 @@
+import Footer from "@/components/global/Footer";
+import Hero from "@/components/global/Hero";
+import Navbar from "@/components/global/Navbar";
 import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
@@ -39,7 +42,10 @@ export default function RootLayout({
       <body
         className={`${helvetica.variable} antialiased`}
       >
+        <Navbar />
+        <Hero />
         {children}
+        <Footer />
       </body>
     </html>
   );
