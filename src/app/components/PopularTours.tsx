@@ -2,7 +2,8 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import type SwiperType from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -65,9 +66,13 @@ const PopularTours = () => {
   const { width } = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
+  const swiperRef = useRef<SwiperType>();
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
 
   const handleSlideClick = (index: number) => {
     setActiveIndex(index);
+    setHasBeenClicked(true);
+    swiperRef.current?.slideTo(index);
   };
 
   return (
@@ -129,7 +134,7 @@ const PopularTours = () => {
                   slidesPerView: 2.4,
                 },
               }}
-              centeredSlides={false}
+              centeredSlides={hasBeenClicked}
               navigation={{
                 prevEl: '#tour-slider-prev',
                 nextEl: '#tour-slider-next',
@@ -139,6 +144,7 @@ const PopularTours = () => {
               } : false}
               className={cn("w-full", width < 768 ? "pb-10" : "")}
               onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
               {tourData.map((tour, index) => (
                 <SwiperSlide key={tour.id} className="h-auto">
