@@ -1,4 +1,5 @@
 "use client";
+import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Plane, X } from 'lucide-react';
 import Image from 'next/image';
@@ -51,7 +52,10 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-40">
-      <div className={`w-full transition-all duration-300 ${scrolled ? 'bg-zinc-900/90 backdrop-blur-sm' : 'bg-transparent'}`}>
+      <div className={cn("w-full transition-all duration-300", {
+        "bg-dark-900/60 backdrop-blur-lg": scrolled,
+        "bg-transparent": !scrolled
+      })}>
         <div className="max-w-[1920px] mx-auto px-4 md:px-6">
           {/* Main Navigation Bar */}
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -98,7 +102,7 @@ const Navbar = () => {
               </div>
 
               {/* Phone Number - Hidden on Mobile */}
-              <Link href="/contact" className="flex items-center text-white gap-2">
+              <Link href="/contact" className="flex items-center text-white gap-2 2xl:pr-6 2xl:pl-10">
                 <span className="flex-center ~text-lg/xl text-primary bg-white rounded-full p-1 ~size-6/8 hover:bg-primary hover:text-white transition-all duration-300">
                   <TbPhone strokeWidth={1} />
                 </span>
@@ -116,7 +120,7 @@ const Navbar = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="xl:hidden flex-center ~text-lg/xl text-white border border-white rounded-full p-1 ~size-6/8"
+                className="xl:hidden flex-center ~text-lg/xl text-white border border-white rounded-full p-1 ~size-6/8 ml-5"
               >
                 {isMenuOpen ? (
                   <X className="h-6 w-6" />
