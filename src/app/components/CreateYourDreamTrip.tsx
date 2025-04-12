@@ -125,7 +125,6 @@ const CreateYourDreamTrip = () => {
         </div>
       </div>
 
-
       <div className="~pt-10/5 flex flex-col sm:flex-row items-center lg:justify-end gap-4">
         <Button className="w-full sm:w-1/2 flex lg:hidden" hasArrow>
           Create a tour

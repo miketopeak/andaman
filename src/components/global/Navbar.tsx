@@ -43,6 +43,9 @@ const Navbar = () => {
       setScrolled(window.scrollY > 20);
     };
 
+    // Check scroll position immediately when component mounts
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
