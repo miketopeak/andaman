@@ -1,11 +1,12 @@
 "use client";
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Plane, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { BiSolidPlaneAlt } from 'react-icons/bi';
 import { FaFacebookF, FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { IoLogoInstagram } from 'react-icons/io';
 import { MdSunny } from 'react-icons/md';
@@ -56,7 +57,7 @@ const Navbar = () => {
         "bg-dark-900/60 backdrop-blur-lg": scrolled,
         "bg-transparent": !scrolled
       })}>
-        <div className="max-w-[1920px] mx-auto px-4 md:px-6">
+        <div className="container">
           {/* Main Navigation Bar */}
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
@@ -97,7 +98,7 @@ const Navbar = () => {
               <div className="hidden md:block xl:hidden relative">
                 <Link href="/search-flight" className="flex items-center text-white gap-2 ~px-8/24">
                   <span>Search Flight</span>
-                  <Plane className="h-5 w-5 text-white/70" />
+                  <BiSolidPlaneAlt />
                 </Link>
               </div>
 

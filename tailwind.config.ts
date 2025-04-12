@@ -39,6 +39,7 @@ const config: Config = {
         },
         white: {
           DEFAULT: '#FFFFFF',
+          "off-light": '#DDD',
           off: '#DCDCDC',
           dark: '#939393',
         },
@@ -49,7 +50,8 @@ const config: Config = {
         baloo2: ["var(--font-baloo-2)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        'footer-gradient': 'linear-gradient(270deg, #0F172F 2.22%, #0D152A 31.54%, #101B30 50.74%, #151F33 70.62%, #131D32 74.66%, #0C192E 80.38%, #0D192B 99.94%)',
+        "btn-primary": "linear-gradient(100deg, #C5C900 7.4%, #82D755 26.98%, #00ACB1 87.32%)",
+        "btn-primary-hover": "linear-gradient(100deg, #FAFF00 7.4%, #9DE475 26.98%, #4DCACF 87.32%)",
         'hero': "linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url('/assets/bg/hero.png')",
       },
       boxShadow: {
