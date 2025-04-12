@@ -1,9 +1,12 @@
 import Footer from "@/components/global/Footer";
 import Hero from "@/components/global/Hero";
 import Navbar from "@/components/global/Navbar";
-import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import "../styles/globals.scss";
+import "../styles/styles.scss";
 
 const helvetica = localFont({
   src: [
