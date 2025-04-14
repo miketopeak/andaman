@@ -1,5 +1,9 @@
+"use client"
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdSunny } from "react-icons/md";
@@ -7,8 +11,8 @@ import { TbPhone } from "react-icons/tb";
 import { Button } from "../ui/button";
 
 const Hero = () => {
-
   const temperature = 30;
+  const [isInputActive, setIsInputActive] = useState(false);
 
   return (
     <header className="relative bg-hero bg-cover bg-center bg-no-repeat w-full xl:h-screen pb-10">
@@ -21,10 +25,28 @@ const Hero = () => {
         </div>
 
         <div className="flex md:hidden xl:flex items-center gap-4">
-          <Link href="/" className="text-white ~text-base/xl flex-center gap-2 md:bg-white/10 md:border md:border-white/40 md:px-6 py-4 rounded-lg md:backdrop-blur-md">
-            Search for a flight
-            <BiSolidPlaneAlt />
-          </Link>
+          <div className="w-60 relative md:bg-white/10 md:border md:border-white/40 rounded-lg md:backdrop-blur-md">
+            <input
+              className={`${isInputActive ? "md:px-8 placeholder:text-white/50" : "md:px-6 placeholder:text-white"} py-4 text-white ~text-base/xl bg-transparent outline-none transition-all duration-300`}
+              placeholder="Search for a flight"
+              onClick={() => setIsInputActive(true)}
+              onBlur={() => setIsInputActive(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, }}
+              animate={{
+                opacity: 1,
+                y: "-50%",
+                x: isInputActive ? "0.5rem" : "12rem",
+                // right: isInputActive ? "auto" : "4",
+                // left: isInputActive ? "4" : "auto"
+              }}
+              transition={{ duration: 0.5 }}
+              className="absolute text-white top-1/2 text-xl"
+            >
+              <BiSolidPlaneAlt />
+            </motion.div>
+          </div>
         </div>
 
         <div className="space-y-12 ~mt-11/32">

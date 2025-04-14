@@ -57,7 +57,6 @@ const Services = () => {
                   description={item.description}
                   image={item.image}
                   className={i === 0 || i === 5 ? "lg:col-span-2" : ""}
-                  isDefaultOpen={i === 0}
                 />
               ))}
             </BentoGrid>
@@ -74,7 +73,7 @@ const Services = () => {
             >
               {items.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <BentoGridItem className='h-[20rem]' {...item} index={i} isDefaultOpen={true} />
+                  <BentoGridItem className='' {...item} index={i} isDefaultOpen={true} />
                 </SwiperSlide>
               ))}
             </Swiper>

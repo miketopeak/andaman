@@ -142,9 +142,9 @@ const PopularTours = () => {
               pagination={width < 768 ? {
                 clickable: true,
               } : false}
-              className={cn("w-full", width < 768 ? "pb-10" : "")}
               onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
+              className={cn("w-full", width < 768 ? "pb-10" : "")}
             >
               {tourData.map((tour, index) => (
                 <SwiperSlide key={tour.id} className="h-auto">
@@ -160,7 +160,7 @@ const PopularTours = () => {
                         src={tour.image}
                         alt={tour.title}
                         fill
-                        className="object-cover"
+                        className="object-cover hidden lg:block"
                       />
 
                       {/* Tour details overlay - visible on active or hovered slide */}
@@ -168,7 +168,7 @@ const PopularTours = () => {
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          className="absolute inset-0 bg-dark-700/80 p-8 flex flex-col justify-between transition-opacity duration-300">
+                          className="absolute inset-0 bg-dark-700/60 lg:bg-dark-700/80 p-8 flex flex-col justify-between transition-opacity duration-300">
                           {/* Top section with days and price */}
                           <div className="flex justify-between">
                             <div className="text-white">

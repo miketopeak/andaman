@@ -3,6 +3,7 @@
 import useWindowSize from "@/lib/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
 import { Button } from "./button";
 
@@ -49,17 +50,17 @@ export const BentoGridItem = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn(
-        "relative group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-lg transition duration-200 bg-cover bg-center",
+        "relative group/bento row-span-1 flex flex-col justify-between rounded-lg transition duration-200 overflow-hidden",
         className,
       )}
-      style={{ backgroundImage: `url(${image})` }}
     >
+      <Image src={image || ""} alt={title} width={500} height={500} className="w-full h-60 lg:h-full object-cover rounded-lg" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isDefaultOpen ? 1 : 0 }}
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="absolute inset-0 p-8 size-full flex flex-col justify-between bg-dark/80 transition duration-200"
+        className="lg:absolute inset-0 pt-4 p-0 lg:p-8 lg:size-full flex flex-col gap-4 pb-4 lg:pb-0 justify-between lg:bg-dark/80 transition duration-200"
       >
         <h2 className="text-2xl text-white">
           {title}
@@ -67,7 +68,7 @@ export const BentoGridItem = ({
         <div className="flex-between gap-4 text-[#CECECE]">
           <p className="max-w-md text-sm">{description}</p>
 
-          <Button variant="white" className="size-10 min-w-10 flex-center text-dark hover:rotate-45 transition-transform duration-300">
+          <Button variant="white" className="flex size-10 min-w-10 flex-center text-dark hover:rotate-45 transition-transform duration-300">
             <GoArrowUpRight strokeWidth={1} size={20} className="-ml-1" />
           </Button>
         </div>

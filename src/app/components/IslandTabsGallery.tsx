@@ -38,7 +38,7 @@ const IslandTabsGallery = () => {
         Unforgettable places of the islands
       </Text>
 
-      <div className="mt-16">
+      <div className="pt-16">
         <Tabs defaultValue="digilpur" className="w-full">
           <TabsList>
             <TabsTrigger value="digilpur">Digilpur</TabsTrigger>
