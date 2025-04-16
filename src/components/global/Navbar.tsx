@@ -139,7 +139,7 @@ const Navbar = () => {
           <AnimatePresence>
             {isMenuOpen && (
               <motion.div
-                className="xl:hidden bg-dark fixed inset-0 overflow-y-auto"
+                className="block xl:hidden bg-dark fixed min-h-screen inset-0 overflow-y-auto z-50"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
