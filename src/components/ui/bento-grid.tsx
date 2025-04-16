@@ -1,6 +1,5 @@
 "use client";
 
-import useWindowSize from "@/lib/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -32,7 +31,6 @@ export const BentoGridItem = ({
   description,
   image,
   isDefaultOpen = false,
-  index,
 }: {
   className?: string;
   title: string;
@@ -42,13 +40,12 @@ export const BentoGridItem = ({
   index: number;
 }) => {
 
-  const { width } = useWindowSize();
-
   return (
     <motion.div
-      initial={{ opacity: width > 1024 ? 0 : 1, y: width > 1024 ? 100 : 0 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      // initial={{ opacity: width > 1024 ? 0 : 1, y: width > 1024 ? 100 : 0 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true, amount: 0.5 }}
+      // transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn(
         "relative group/bento row-span-1 flex flex-col justify-between rounded-lg transition duration-200 overflow-hidden",
         className,
