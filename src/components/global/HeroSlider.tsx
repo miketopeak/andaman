@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { FaPlane, FaShip } from 'react-icons/fa';
 
-const radius = 300;
-const center = 323;
+const radius = 350;
+const center = 373;
 
 interface HeroSliderProps {
   locations: { name: string }[];
@@ -28,7 +28,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
 
   return (
     <div className="flex items-center justify-center h-full">
-      <svg width="646" height="646" viewBox="0 0 646 646" className="absolute">
+      <svg width="746" height="746" viewBox="0 0 746 746" className="absolute">
         <circle
           cx={center}
           cy={center}
@@ -62,7 +62,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
       </motion.div>
 
       <motion.div
-        className="relative w-[646px] h-[646px]"
+        className="relative w-[746px] h-[746px]"
         style={{ rotate: angle }}
       >
         {locations.map((location, index) => {
@@ -87,8 +87,8 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
                   )}
                 />
                 <div className={cn(
-                  "ml-2 text-white text-xl font-semibold transition-all duration-300",
-                  activeIndex === index && "ml-6 delay-1000"
+                  "ml-2 text-white text-base transition-all duration-300",
+                  activeIndex === index && "ml-6 text-3xl delay-1000"
                 )}>
                   {location.name}
                 </div>
