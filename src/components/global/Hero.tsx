@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
@@ -9,14 +8,63 @@ import { FaWhatsapp } from "react-icons/fa";
 import { MdSunny } from "react-icons/md";
 import { TbPhone } from "react-icons/tb";
 import { Button } from "../ui/button";
+import HeroSlider from "./HeroSlider";
 
 const Hero = () => {
   const temperature = 30;
   const [isInputActive, setIsInputActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(3);
 
+  const locations = [
+    {
+      name: 'Havelock',
+      image: '/assets/bg/hero.png'
+    },
+    {
+      name: 'Diglipur',
+      image: '/assets/images/img-4.png'
+    },
+    {
+      name: 'Long',
+      image: '/assets/bg/hero.png'
+    },
+    {
+      name: 'Baratang',
+      image: '/assets/images/img-4.png'
+    },
+    {
+      name: 'Havelock',
+      image: '/assets/bg/hero.png'
+    },
+    {
+      name: 'Diglipur',
+      image: '/assets/images/img-4.png'
+    },
+  ];
+
+  console.log(locations[activeIndex].image);
   return (
-    <header className="relative bg-hero bg-cover bg-center bg-no-repeat w-full xl:h-screen pb-10">
-      <div className="container ~pt-32/40">
+    <div className="relative w-full xl:h-screen pb-10 overflow-hidden">
+      {locations.map((location, index) => (
+        <motion.div
+          key={`bg-${index}`}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          initial={false}
+          animate={{
+            opacity: activeIndex === index ? 1 : 0,
+            scale: activeIndex === index ? 1 : 1.1
+          }}
+          transition={{
+            opacity: { duration: 0.8, ease: "easeInOut" },
+            scale: { duration: 1, ease: "easeOut" }
+          }}
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url(${location.image})`
+          }}
+        />
+      ))}
+
+      <div className="container relative z-10 ~pt-32/40">
         <div className="flex md:hidden items-center gap-2 text-white">
           <span className="text-secondary text-3xl">
             <MdSunny />
@@ -79,10 +127,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="lg:block hidden absolute top-1/2 right-0 -translate-y-1/2">
-        <Image src="/assets/images/hero-img.png" alt="Hero" width={806} height={646} className="w-[400px] xl:w-[506px] h-auto object-cover" />
+      <div className="lg:block hidden absolute top-1/2 left-[80%] -translate-y-1/2">
+        <HeroSlider locations={locations} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
       </div>
-    </header>
+    </div>
   );
 };
 
