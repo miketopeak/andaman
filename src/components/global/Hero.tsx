@@ -130,7 +130,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="lg:block hidden absolute top-1/2 left-[100%] -translate-y-1/2">
+      <div className="xl:block hidden absolute top-1/2 left-[100%] -translate-y-1/2">
         <HeroSlider locations={locations} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
       </div>
     </div>
