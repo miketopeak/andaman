@@ -21,7 +21,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
     const interval = setInterval(() => {
       setActiveIndex((prev: number) => (prev + 1) % locations.length);
       animate(angle, angle.get() - 60, { duration: 1, ease: 'easeInOut' });
-    }, 10000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [angle]);
@@ -61,22 +61,30 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
         <FaPlane size={24} />
       </motion.div>
 
-      <motion.div
-        className="relative w-[746px] h-[746px]"
-        style={{ rotate: angle }}
-      >
+      <motion.div className="relative w-[746px] h-[746px]">
         {locations.map((location, index) => {
           const total = locations.length;
           const angleDeg = (index / total) * 360;
-          const rad = (angleDeg * Math.PI) / 180;
-          const x = center + radius * Math.cos(rad) - 10;
-          const y = center + radius * Math.sin(rad) - 10;
+          // const rad = (angleDeg * Math.PI) / 180;
+          // const x = center + radius * Math.cos(rad) - 10;
+          // const y = center + radius * Math.sin(rad) - 10;
+
+          const currentAngle = angleDeg + angle.get();
+          const transform = `
+          rotate(${currentAngle}deg)
+          translateY(-${radius}px)
+          rotate(${-currentAngle}deg)
+          `;
 
           return (
-            <div
+            <motion.div
               key={index}
-              className="absolute"
-              style={{ top: `${parseFloat(y.toFixed(2))}px`, left: `${parseFloat(x.toFixed(2))}px` }}
+              className="absolute origin-bottom"
+              style={{
+                // top: `${parseFloat(y.toFixed(2))}px`, left: `${parseFloat(x.toFixed(2))}px`,
+                transform: transform,
+                transition: 'transform 1s ease-in-out'
+              } as React.CSSProperties}
             >
               <div className="relative flex items-center">
                 <motion.div
@@ -93,9 +101,10 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
                   {location.name}
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
+
       </motion.div>
       <div className="absolute top-1/2 left-10 -translate-y-1/2">
         <Image src="/assets/images/hero-map.png" alt="Havelock" width={227} height={431} className="w-[327px] h-auto" />
