@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "motion/react";
-import Link from "next/link";
 import { useState } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -109,8 +108,16 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="flex-between pt-16">
-          <div className="w-full grid grid-cols-2 md:flex ~gap-3/6">
+        <div className="pt-4">
+          <div className="hidden xl:flex gap-1.5">
+            <Button variant="white-outline" size="icon">
+              <TbPhone size={20} />
+            </Button>
+            <Button variant="white-outline" size="icon">
+              <FaWhatsapp size={20} />
+            </Button>
+          </div>
+          <div className="pt-16 w-full grid grid-cols-2 md:flex ~gap-3/6">
             <Button variant="white" className="w-full md:w-auto" hasArrow>
               Create a tour
             </Button>
@@ -119,14 +126,7 @@ const Hero = () => {
               Select tour
             </Button>
           </div>
-          <div className="xl:flex hidden flex-col gap-1.5">
-            <Link href="/cart" className="flex-center ~text-lg/xl text-secondary bg-dark-700 rounded-full p-1 ~size-6/8 hover:bg-secondary hover:text-dark transition-all duration-300">
-              <TbPhone />
-            </Link>
-            <Link href="/cart" className="flex-center ~text-lg/xl text-secondary bg-dark-700 rounded-full p-1 ~size-6/8 hover:bg-secondary hover:text-dark transition-all duration-300">
-              <FaWhatsapp size={20} />
-            </Link>
-          </div>
+
         </div>
       </div>
 
