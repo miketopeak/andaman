@@ -42,10 +42,13 @@ const Hero = () => {
     },
   ];
 
-  console.log(locations[activeIndex].image);
   return (
-    <div className="relative w-full xl:h-screen pb-10 overflow-hidden">
-      {locations.map((location, index) => (
+    <div className="relative w-full xl:h-screen pb-10 overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url(/assets/bg/hero.png)`
+      }}
+    >
+      {/* {locations.map((location, index) => (
         <motion.div
           key={`bg-${index}`}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -62,7 +65,7 @@ const Hero = () => {
             backgroundImage: `linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url(${location.image})`
           }}
         />
-      ))}
+      ))} */}
 
       <div className="container relative z-10 ~pt-32/40">
         <div className="flex md:hidden items-center gap-2 text-white">
