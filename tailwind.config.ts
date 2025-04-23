@@ -109,7 +109,7 @@ const config: Config = {
         blink: 'blink 1.5s ease-in-out infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        orbit: 'orbit var(--duration) linear infinite',
+        orbit: 'orbit var(--duration) linear infinite var(--delay, 0s)',
       },
     },
   },

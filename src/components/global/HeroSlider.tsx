@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
-import { animate, motion, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import { FaPlane, FaShip } from 'react-icons/fa';
 
 const radius = 350;
@@ -14,17 +13,6 @@ interface HeroSliderProps {
 }
 
 export default function HeroSlider({ locations, activeIndex, setActiveIndex }: HeroSliderProps) {
-  const angle = useMotionValue(0);
-
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev: number) => (prev + 1) % locations.length);
-      animate(angle, angle.get() - 60, { duration: 1, ease: 'easeInOut' });
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [angle]);
 
   return (
     <div className="flex items-center justify-center h-full">
@@ -61,22 +49,23 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
         <FaPlane size={24} />
       </motion.div>
 
-      <motion.div
-        className="relative w-[746px] h-[746px]"
-        style={{ rotate: angle }}
-      >
+      <motion.div className="relative w-[746px] h-[746px]">
         {locations.map((location, index) => {
-          const total = locations.length;
-          const angleDeg = (index / total) * 360;
-          const rad = (angleDeg * Math.PI) / 180;
-          const x = center + radius * Math.cos(rad) - 10;
-          const y = center + radius * Math.sin(rad) - 10;
-
           return (
-            <div
+            <motion.div
               key={index}
-              className="absolute"
-              style={{ top: `${parseFloat(y.toFixed(2))}px`, left: `${parseFloat(x.toFixed(2))}px` }}
+              style={
+                {
+                  '--duration': '10s',
+                  '--radius': `${radius}px`,
+                  '--angle': `${(index / locations.length) * 360}`,
+                  '--delay': `${2}s`,
+                } as React.CSSProperties
+              }
+              className={cn(
+                "absolute flex transform-gpu animate-orbit ",
+                activeIndex === index && "z-10",
+              )}
             >
               <div className="relative flex items-center">
                 <motion.div
@@ -93,7 +82,8 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
                   {location.name}
                 </div>
               </div>
-            </div>
+            </motion.div>
+
           );
         })}
       </motion.div>
