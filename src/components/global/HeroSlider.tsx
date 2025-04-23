@@ -21,7 +21,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
     const interval = setInterval(() => {
       setActiveIndex((prev: number) => (prev + 1) % locations.length);
       animate(angle, angle.get() - 60, { duration: 1, ease: 'easeInOut' });
-    }, 2000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [angle]);
@@ -40,22 +40,24 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
         />
       </svg>
 
-      <motion.div
-        className="absolute text-white"
-        style={{
-          top: center - 120,
-          left: center - radius + 8,
-        }}
-      >
-        <FaShip size={24} />
-      </motion.div>
 
       <div className="relative">
+
         <motion.div
           className="absolute text-white"
           style={{
-            top: center + 100,
-            left: center - radius + 10,
+            left: -radius + 10,
+            top: -100,
+
+          }}
+        >
+          <FaShip size={24} />
+        </motion.div>
+        <motion.div
+          className="absolute text-white"
+          style={{
+            left: -radius + 10,
+            top: 100,
             rotate: -110
           }}
         >
@@ -103,11 +105,12 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
             </div>
           );
         })}
+
+        <div className="absolute w-[327px] top-1/2 -translate-y-1/2 -right-10">
+          <Image src="/assets/images/hero-map.png" alt="Havelock" width={227} height={431} className="w-full h-auto" />
+        </div>
       </div>
 
-      <div className="absolute top-1/2 left-10 -translate-y-1/2">
-        <Image src="/assets/images/hero-map.png" alt="Havelock" width={227} height={431} className="w-[327px] h-auto" />
-      </div>
     </div>
   );
 }
