@@ -68,7 +68,8 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
           // const x = center + radius * Math.cos(rad) - 10;
           // const y = center + radius * Math.sin(rad) - 10;
 
-          const currentAngle = angleDeg + angle.get();
+          const currentAngle = angleDeg + angle.get() - 90;
+
           const transform = `
           rotate(${currentAngle}deg)
           translateY(-${radius}px)
@@ -76,17 +77,16 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
           `;
 
           return (
-            <motion.div
+            <div
               key={index}
               className="absolute origin-bottom"
               style={{
-                // top: `${parseFloat(y.toFixed(2))}px`, left: `${parseFloat(x.toFixed(2))}px`,
                 transform: transform,
                 transition: 'transform 1s ease-in-out'
               } as React.CSSProperties}
             >
               <div className="relative flex items-center">
-                <motion.div
+                <div
                   className={cn(
                     "size-3 bg-white rounded-full relative transition-all duration-300",
                     "after:content-[''] after:opacity-0 after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:size-8 after:border after:border-[#67B6B9] after:bg-primary/30 after:rounded-full after:z-[-1] after:transition-all after:duration-300 after:delay-1000",
@@ -100,7 +100,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
                   {location.name}
                 </div>
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>

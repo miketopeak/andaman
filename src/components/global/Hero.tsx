@@ -37,9 +37,9 @@ const Hero = () => {
       image: '/assets/bg/hero.png'
     },
     {
-      name: 'Diglipur',
-      image: '/assets/images/img-4.png'
-    },
+      name: 'Havelock',
+      image: '/assets/bg/hero.png'
+    }
   ];
 
   return (
