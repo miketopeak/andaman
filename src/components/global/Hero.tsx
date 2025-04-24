@@ -12,7 +12,7 @@ import HeroSlider from "./HeroSlider";
 const Hero = () => {
   const temperature = 30;
   const [isInputActive, setIsInputActive] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(5);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const locations = [
     {
@@ -32,11 +32,11 @@ const Hero = () => {
       image: '/assets/images/img-4.png'
     },
     {
-      name: 'Havelock',
+      name: 'Havan',
       image: '/assets/bg/hero.png'
     },
     {
-      name: 'Havelock',
+      name: 'gg',
       image: '/assets/bg/hero.png'
     }
   ];

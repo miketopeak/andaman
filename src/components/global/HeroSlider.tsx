@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from '@/lib/utils';
 import { animate, motion, useMotionValue } from 'framer-motion';
 import Image from 'next/image';
@@ -14,17 +16,28 @@ interface HeroSliderProps {
 }
 
 export default function HeroSlider({ locations, activeIndex, setActiveIndex }: HeroSliderProps) {
+
   const angle = useMotionValue(0);
 
-
   useEffect(() => {
+    let index = 0;
+
     const interval = setInterval(() => {
-      setActiveIndex((prev: number) => (prev + 1) % locations.length);
-      animate(angle, angle.get() - 60, { duration: 1, ease: 'easeInOut' });
-    }, 10000);
+      const newAngle = angle.get() - 60;
+
+      animate(angle, newAngle, {
+        duration: 1,
+        ease: 'easeInOut',
+        onComplete: () => {
+          index = (index + 1) % locations.length;
+          setActiveIndex(index);
+        },
+      });
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [angle]);
+
 
   return (
     <div className="flex items-center justify-center h-full">
@@ -40,9 +53,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
         />
       </svg>
 
-
       <div className="relative">
-
         <motion.div
           className="absolute text-white"
           style={{
@@ -67,9 +78,6 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
         {locations.map((location, index) => {
           const total = locations.length;
           const angleDeg = (index / total) * 360;
-          // const x = center + radius * Math.cos(rad) - 10;
-          // const y = center + radius * Math.sin(rad) - 10;
-
           const currentAngle = angleDeg + angle.get() - 90;
 
           const transform = `
