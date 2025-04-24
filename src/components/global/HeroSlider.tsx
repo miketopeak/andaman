@@ -33,7 +33,7 @@ export default function HeroSlider({ locations, activeIndex, setActiveIndex }: H
           setActiveIndex(index);
         },
       });
-    }, 2000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [angle]);
