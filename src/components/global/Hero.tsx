@@ -17,27 +17,27 @@ const Hero = () => {
   const locations = [
     {
       name: 'Havelock',
-      image: '/assets/bg/hero.png'
+      image: '/assets/bg/havelock.png'
     },
     {
       name: 'Diglipur',
-      image: '/assets/images/img-4.png'
+      image: '/assets/bg/diglipur.png'
     },
     {
       name: 'Long',
-      image: '/assets/bg/hero.png'
+      image: '/assets/bg/long.png'
     },
     {
-      name: 'Baratang',
-      image: '/assets/images/img-4.png'
+      name: 'Havelock',
+      image: '/assets/bg/havelock.png'
     },
     {
-      name: 'Havan',
-      image: '/assets/bg/hero.png'
+      name: 'Diglipur',
+      image: '/assets/bg/diglipur.png'
     },
     {
-      name: 'gg',
-      image: '/assets/bg/hero.png'
+      name: 'Long',
+      image: '/assets/bg/long.png'
     }
   ];
 
@@ -47,7 +47,7 @@ const Hero = () => {
         backgroundImage: `linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url(/assets/bg/hero.png)`
       }}
     >
-      {/* {locations.map((location, index) => (
+      {locations.map((location, index) => (
         <motion.div
           key={`bg-${index}`}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -64,7 +64,7 @@ const Hero = () => {
             backgroundImage: `linear-gradient(180deg, rgba(0, 29, 32, 0.81) 0%, rgba(7, 146, 149, 0.00) 38.01%), url(${location.image})`
           }}
         />
-      ))} */}
+      ))}
 
       <div className="container relative z-10 ~pt-32/40">
         <div className="flex md:hidden items-center gap-2 text-white">
